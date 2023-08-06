@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  mariadb:
+    build: .
+    container_name: mariadb
+    env_file: ../.env
+    image: mariadb_im
+    restart: always
+    ports:
+      - 42:42
