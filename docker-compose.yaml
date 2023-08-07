@@ -4,7 +4,7 @@ services:
   mariadb:
     build: .
     container_name: mariadb
-    env_file: ../.env
+    env_file: .env
     image: mariadb_im
     restart: always
     ports:
