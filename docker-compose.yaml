@@ -9,3 +9,11 @@ services:
     restart: always
     ports:
       - 42:42
+  nginx:
+    build: .
+    container_name: nginx
+    env_file: .env
+    image: nginx_im
+    ports:
+      - 80:80
+    restart: on_failure
