@@ -2,7 +2,7 @@ version: "3"
 
 services:
   mariadb:
-    build: .
+    build: ./mariadb
     container_name: mariadb
     env_file: .env
     image: mariadb_im
@@ -10,10 +10,10 @@ services:
     ports:
       - 42:42
   nginx:
-    build: .
+    build: ./nginx
     container_name: nginx
     env_file: .env
     image: nginx_im
     ports:
-      - 80:80
-    restart: on_failure
+      - 443:443
+    restart: on-failure
