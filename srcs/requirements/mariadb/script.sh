@@ -1,6 +1,6 @@
 #!/bin/bash
 
-service mysql start
+service mariadb start
 sleep 2
 sed -i 's@= 127.0.0.1@= 0.0.0.0@' /etc/mysql/mariadb.conf.d/50-server.cnf
 mysql -u root -e "create database wordpress;"

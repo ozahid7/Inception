@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 
 RUN apt-get update
 
@@ -9,6 +9,5 @@ RUN mkdir /home/script
 COPY script.sh /home/script
 
 RUN	chmod 777 /home/script/script.sh
-
 
 CMD ["/home/script/script.sh"]
