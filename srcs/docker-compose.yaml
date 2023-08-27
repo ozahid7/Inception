@@ -17,14 +17,19 @@ services:
     ports:
       - 443:443
     restart: on-failure
+    volumes:
+      - /home/ozahid/Desktop/wpgx:/var/www/html
   wordpress:
     build:  ./requirements/wordpress
     container_name: wordpress
     env_file: .env
     image: wordpress_im
     depends_on:
-      - nginx
       - mariadb
+      - nginx
     ports:
       - 9000:9000
     restart: always
+    volumes:
+      - /home/ozahid/Desktop/wpgx:/var/www/html
+  
