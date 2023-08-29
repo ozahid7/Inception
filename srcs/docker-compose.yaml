@@ -9,16 +9,22 @@ services:
     restart: always
     ports:
       - 42:42
+    networks:
+      - net
   nginx:
     build: ./requirements/nginx
     container_name: nginx
     env_file: .env
     image: nginx_im
+    depends_on:
+      - wordpress
     ports:
       - 443:443
     restart: on-failure
     volumes:
-      - /home/ozahid/Desktop/wpgx:/var/www/html
+      - /Users/ozahid-/Desktop/wpgx:/var/www/html
+    networks:
+      - net
   wordpress:
     build:  ./requirements/wordpress
     container_name: wordpress
@@ -26,10 +32,13 @@ services:
     image: wordpress_im
     depends_on:
       - mariadb
-      - nginx
     ports:
       - 9000:9000
     restart: always
     volumes:
-      - /home/ozahid/Desktop/wpgx:/var/www/html
+      - /Users/ozahid-/Desktop/wpgx:/var/www/html
+    networks:
+      - net
+networks:
+  net:
   
