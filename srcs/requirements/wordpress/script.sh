@@ -2,8 +2,10 @@
 
 sed -i 's@/run/php/php7.4-fpm.sock@9000@' /etc/php/7.4/fpm/pool.d/www.conf
 mkdir -p /run/php
-wp core download --allow-root
-wp core config --dbhost=mariadb --dbname=wordpress --dbuser=ozahid --dbpass=1234 --allow-root
-wp core install --url=localhost --title="ozahid title" --admin_user=Admin --admin_password=1234 --admin_email=test@email.com --allow-root 
-
+config_file=/var/www/html/wp-config.php
+if [ -f "$config_file" ]; then
+	wp core download --allow-root
+	wp core config --dbhost=$wordpress_database_host --dbname=$mariadb_database --dbuser=$mariadb_user --dbpass=$mariadb_password --allow-root
+	wp core install --url=$wordpress_url --title=$wordpress_title --admin_user=$mariadb_user --admin_password=$mariadb_password --admin_email=test@email.com --allow-root
+fi
 php-fpm7.4 -F
