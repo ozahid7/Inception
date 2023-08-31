@@ -12,7 +12,7 @@ services:
     networks:
       - net
     volumes:
-      - /home/ozahid-/data/mariadb:/home/database
+      - /home/ozahid-/data/mariadb:/var/lib/mysql
   nginx:
     build: ./requirements/nginx
     container_name: nginx

@@ -6,10 +6,10 @@ RUN	apt install mariadb-server -y
 
 RUN mkdir -p /home/script
 
-RUN mkdir -p /home/database
-
 COPY tools/script.sh /home/script
 
 RUN	chmod 777 /home/script/script.sh
+
+WORKDIR /var/lib/mysql
 
 CMD ["/home/script/script.sh"]
