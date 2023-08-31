@@ -14,7 +14,7 @@ RUN apt install mariadb-client -y
 
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
-RUN mkdir /home/script
+RUN mkdir -p /home/script
 
 COPY script.sh /home/script
 

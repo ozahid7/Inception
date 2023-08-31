@@ -1,7 +1,6 @@
 #!/bin/bash
 
 sed -i 's@/run/php/php7.4-fpm.sock@9000@' /etc/php/7.4/fpm/pool.d/www.conf
-# service php7.4-fpm start
 mkdir -p /run/php
 wp core download --allow-root
 wp core config --dbhost=mariadb --dbname=wordpress --dbuser=ozahid --dbpass=1234 --allow-root

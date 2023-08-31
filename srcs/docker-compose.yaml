@@ -8,9 +8,11 @@ services:
     image: mariadb_im
     restart: always
     ports:
-      - 42:42
+      - 3306:3306
     networks:
       - net
+    volumes:
+      - /Users/ozahid-/Desktop/database:/home/database
   nginx:
     build: ./requirements/nginx
     container_name: nginx

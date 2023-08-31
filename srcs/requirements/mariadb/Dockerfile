@@ -4,7 +4,9 @@ RUN apt-get update
 
 RUN	apt install mariadb-server -y
 
-RUN mkdir /home/script
+RUN mkdir -p /home/script
+
+RUN mkdir -p /home/database
 
 COPY script.sh /home/script
 
