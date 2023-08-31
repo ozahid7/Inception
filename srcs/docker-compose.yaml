@@ -12,7 +12,7 @@ services:
     networks:
       - net
     volumes:
-      - /home/ozahid-/data/mariadb:/home/database
+      - /Users/ozahid-/Desktop/mariadb:/home/database
   nginx:
     build: ./requirements/nginx
     container_name: nginx
@@ -24,7 +24,7 @@ services:
       - 443:443
     restart: on-failure
     volumes:
-      - /home/ozahid-/data/wpgx:/var/www/html
+      - /Users/ozahid-/Desktop/wpgx:/var/www/html
     networks:
       - net
   wordpress:
@@ -38,9 +38,9 @@ services:
       - 9000:9000
     restart: always
     volumes:
-      - /home/ozahid-/data/wpgx:/var/www/html
+      - /Users/ozahid-/Desktop/wpgx:/var/www/html
     networks:
       - net
 networks:
   net:
-  
+    

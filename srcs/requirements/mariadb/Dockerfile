@@ -8,7 +8,7 @@ RUN mkdir -p /home/script
 
 RUN mkdir -p /home/database
 
-COPY script.sh /home/script
+COPY tools/script.sh /home/script
 
 RUN	chmod 777 /home/script/script.sh
 

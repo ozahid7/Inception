@@ -1,6 +1,5 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/ozahid-/Desktop/Inception'
+docker compose -f srcs/docker-compose.yaml up --build
 make: Leaving directory `/Users/ozahid-/Desktop/Inception'
  
-make: *** No targets.  Stop.
-
