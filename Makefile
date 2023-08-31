@@ -1,9 +1,10 @@
 FILE = srcs/docker-compose.yaml
 up:
-	docker compose -f $(FILE) up --build
+	sudo docker compose -f $(FILE) up --build
 down:
-	docker compose -f $(FILE) down
+	sudo docker compose -f $(FILE) down
+	sudo rm -rf /home/ozahid-/data/wpgx
 fdown: down
-	docker system prune -a
+	sudo docker system prune -a
 
 .PHONY: up down fdown
