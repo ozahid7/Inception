@@ -10,6 +10,4 @@ COPY tools/script.sh /home/script
 
 RUN	chmod 777 /home/script/script.sh
 
-WORKDIR /var/lib/mysql
-
 CMD ["/home/script/script.sh"]

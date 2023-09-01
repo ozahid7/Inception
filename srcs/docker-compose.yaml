@@ -12,7 +12,7 @@ services:
     networks:
       - net
     volumes:
-      - /home/ozahid-/data/mariadb:/var/lib/mysql
+      - mariadb-data:/var/lib/mysql
   nginx:
     build: ./requirements/nginx
     container_name: nginx
@@ -44,3 +44,10 @@ services:
 networks:
   net:
     
+volumes:
+  mariadb-data:
+    driver: local
+    driver_opts:
+      type: volume
+      device: /home/ozahid-/data/mariadb
+      o: bind
