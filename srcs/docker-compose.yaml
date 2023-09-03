@@ -24,7 +24,7 @@ services:
       - 443:443
     restart: on-failure
     volumes:
-      - /home/ozahid-/data/wpgx:/var/www/html
+      - wpgx:/var/www/html
     networks:
       - net
   wordpress:
@@ -38,7 +38,7 @@ services:
       - 9000:9000
     restart: always
     volumes:
-      - /home/ozahid-/data/wpgx:/var/www/html
+      - wpgx:/var/www/html
     networks:
       - net
 networks:
@@ -50,4 +50,10 @@ volumes:
     driver_opts:
       type: volume
       device: /home/ozahid-/data/mariadb
+      o: bind
+  wpgx:
+    driver: local
+    driver_opts:
+      type: volume
+      device: /home/ozahid-/data/wpgx
       o: bind

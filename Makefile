@@ -5,9 +5,14 @@ up:
 
 down:
 	sudo docker compose -f $(FILE) down
-	sudo rm -rf /home/ozahid-/data/wpgx
 
 fdown: down
+	sudo rm -rf /home/ozahid-/data/wpgx/*
+	sudo rm -rf /home/ozahid-/data/mariadb/*
+	sudo docker volume rm srcs_mariadb-data
+	sudo docker volume rm srcs_wpgx
+
+prune:
 	sudo docker system prune -a
 
 re:	fdown up
@@ -21,4 +26,4 @@ nginx:
 wordpress:
 	sudo docker compose -f $(FILE) up wordpress --build
 
-.PHONY: up down fdown
+.PHONY: up down fdown re prune nginx wordpress maria
